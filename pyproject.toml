@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aurarouter-claude"
+version = "0.5.1"
+description = "Anthropic Claude provider for AuraRouter — exposes Claude models as an MCP provider server."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.12"
+authors = [
+    { name = "AuraCore Dynamics Inc." },
+]
+keywords = ["aurarouter", "claude", "anthropic", "mcp", "llm"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "anthropic>=0.40",
+    "mcp[cli]",
+]
+
+[project.entry-points."aurarouter.providers"]
+claude = "aurarouter_claude:get_provider_metadata"
+
+[tool.setuptools.packages.find]
+where = ["src"]
